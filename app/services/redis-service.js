@@ -121,7 +121,7 @@ const RedisService = {
         const namespacedKey = this.prefixKey(pattern);
         try {
             res = await this.client.keysAsync(namespacedKey);
-            console.debug((res > 0 ? "Deleted key [%s] from cache" : "Cache miss for key [%s]"), namespacedKey);
+            console.debug("Found [%s] keys matching [%s]", res.length, namespacedKey);
         } catch (error) {
             console.error(error);
         }

@@ -14,7 +14,7 @@ function find(key) {
 }
 
 async function findAll() {
-    const keys = await RedisService.keys(`${prefix}*`);
+    const keys = await RedisService.keys(`${prefix}/*`);
     const all = [];
     keys.forEach(k => all.push(RedisService.get(k)));
     return Promise.all(all);
