@@ -24,7 +24,7 @@ module.exports = async function (userName, password) {
         results.message = 'Missing credentials';
         return results;
     }
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     // await page.setViewport({ width: 1024, height: 900 });
     await page.goto(url, { waitUntil: 'networkidle2' });
