@@ -1,0 +1,43 @@
+{
+  "name": "epass-credit-notifier",
+  "version": "0.0.1",
+  "description": "A simple app to notify me with my e-pass remaining credit",
+  "scripts": {
+    "start": "node --max_old_space_size=384 app.js",
+    "test": "mocha --reporter spec",
+    "nodemon": "NODE_ENV=development nodemon app",
+    "console": "NODE_ENV=console nc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echetzakis/epass-credit-notifier.git"
+  },
+  "author": "Eleftherios Chetzakis",
+  "license": "MIT",
+  "engines": {
+    "node": "8.x.x"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.12.1",
+    "sinon": "^3.2.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "dotenv": "^4.0.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-logger": "^3.0.1",
+    "koa-router": "^7.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.22.1",
+    "node-nc": "^0.8.1",
+    "puppeteer": "^0.13.0",
+    "redis": "^2.8.0",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
