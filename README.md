@@ -5,7 +5,8 @@ next:
 
 * subscription endpoint
 * scheduling ✔
-* deploy
+* deploy on heroku ✔ 
+  * additional buildpack: https://github.com/jontewks/puppeteer-heroku-buildpack
 * logging
 * scalability / performance (2 workers pub/sub)
 
