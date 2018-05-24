@@ -9,4 +9,8 @@ next:
   * additional buildpack: https://github.com/jontewks/puppeteer-heroku-buildpack
 * logging
 * scalability / performance (2 workers pub/sub)
+* unsubscribe if many errors received
+* front-end
+  * subscription form
+  * stats
 
