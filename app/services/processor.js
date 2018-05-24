@@ -23,12 +23,13 @@ async function process() {
                                     return true;
                                 });
                             }
+                            console.info('.....No change');
                             return true;
                         });
                     }
                     console.info('...Failure');
                     return false;
-                })
+                }).catch(error => console.log(error))
         );
     });
 
