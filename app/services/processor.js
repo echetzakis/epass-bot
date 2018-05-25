@@ -2,7 +2,7 @@ const store = require('./store');
 const notifier = require('./notifier');
 const scrapper = require('./scrapper');
 
-async function process() {
+async function process(force = false) {
     const subscriptions = await store.findAll();
     //{user, password, webhook, balance: 0, at: null };
     const updates = [];
@@ -17,7 +17,7 @@ async function process() {
                         subscription.at = new Date();
                         return store.save(subscription.user, subscription).then(() => {
                             console.info('....Stored');
-                            if (notify) {
+                            if (notify || force) {
                                 return notifier.notify(subscription.webhook, result).then(() => {
                                     console.info('.....Notified');
                                     return true;

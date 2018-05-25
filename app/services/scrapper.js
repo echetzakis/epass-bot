@@ -38,7 +38,7 @@ module.exports = async function (userName, password) {
     results = await page.$$eval('span.account-status-inline>b', details => {
         return {
             status: 'success',
-            acount: details[0].innerText,
+            account: details[0].innerText,
             balance: details[1].innerText,
             last_update: details[2].innerText,
             package: details[3].innerText
