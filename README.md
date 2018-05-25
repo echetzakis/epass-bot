@@ -1,4 +1,4 @@
-# epass-viber-bot
+# epass-bot
 pet project to notify me with my e-pass remaining credit
 
 next:

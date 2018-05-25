@@ -1,5 +1,5 @@
 {
-  "name": "epass-credit-notifier",
+  "name": "epass-bot",
   "version": "0.0.1",
   "description": "A simple app to notify me with my e-pass remaining credit",
   "scripts": {
