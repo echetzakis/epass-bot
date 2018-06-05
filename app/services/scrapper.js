@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer')
     , lo = require('lodash')
-    , url = 'https://cs.attiki-odos.gr/'
-    , moment = require('moment');
+    , url = 'https://cs.attiki-odos.gr/';
 
 function level(balance) {
     let level = 'unknown';
@@ -44,21 +43,16 @@ module.exports = async function (userName, password) {
             package: details[3].innerText
         };
     });
-    // if ('last_update' in results) {
-    //     try {
-    //         results.last_update = moment(results.last_update.replace(/μμ|πμ/, m => m === 'μμ' ? 'pm' : 'am'), 'D/M h:m a').toDate();
-    //     } catch (e) {
-    //         results.last_update = null;
-    //     }
-    // }
     if ('balance' in results) {
         let balance = results.balance.replace(',', '.');
         if (!isNaN(balance)) {
             results.balance = Number.parseFloat(balance);
             results.level = level(results.balance);
+            if (results.package === 'EXPRESS') {
+                results.remaining_trips = Math.floor(results.balance / 2.55);
+            }
         }
     }
-    // await page.screenshot({ path: 'p3.png' });
     await browser.close();
     return results;
 };

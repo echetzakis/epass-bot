@@ -15,8 +15,8 @@ async function notify(url, results) {
 
 function message(results) {
     const balanceAsMoney = results.balance.toString().replace('.', ',') + '€';
-    const color = {red: '#E74C3C', green: '#27AE60', yellow:'#F4D03F', orange: '#E67E22', unknown: '#85929E'};
-    return JSON.stringify({
+    const color = { red: '#E74C3C', green: '#27AE60', yellow: '#F4D03F', orange: '#E67E22', unknown: '#85929E' };
+    const json = {
         "username": "Αττική Οδός",
         "icon_url": "http://media.interactive.netuse.gr/pegasus/Multimedia/png/logo_aodos_id5911144.png",
         "attachments": [
@@ -43,7 +43,15 @@ function message(results) {
                 ]
             }
         ]
-    });
+    };
+    if ('remaining_trips' in results) {
+        json.attachments[0].fields.push({
+            "title": "Διαδρομές που απομένουν",
+            "value": results.remaining_trips,
+            "short": true
+        });
+    }
+    return JSON.stringify(json);
 }
 
 module.exports = { notify };
